@@ -1,5 +1,5 @@
 # Define custom function directory
-ARG FUNCTION_DIR="lambda/"
+ARG FUNCTION_DIR="create_reference_lambda/"
 
 FROM amazon/aws-lambda-python:3.9
 

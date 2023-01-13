@@ -1,0 +1,15 @@
+name: grib_kerchunk
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+ - fsspec
+ - s3fs
+ - boto3 
+ - pip 
+ - zarr 
+ - cfgrib
+ - numcodecs
+ - pip:
+   - git+https://github.com/fsspec/kerchunk
+   - awslambdaric

@@ -63,7 +63,7 @@ class LambdaGfsReferenceStack(Stack):
             role = role,
             code = _lambda.DockerImageCode.from_image_asset(directory = "consolidate_references_lambda/"),
             timeout = Duration.minutes(6),
-            memory_size=2000
+            memory_size=1000
             )
 
 

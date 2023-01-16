@@ -9,7 +9,7 @@ ARG FUNCTION_DIR
 #LABEL maintainer="Peter Marsh"
 # Installs python, removes cache file to make things smaller
 RUN yum update -y && \
-    yum install -y python3 python3-dev python3-pip gcc git wget curl && \
+    yum install -y python3.9 python3-dev python3-pip gcc git wget curl && \
     pip install --upgrade pip &&\
     rm -Rf /var/cache/yum &&\
     rm -rf /var/lib/apt/lists/*
@@ -29,7 +29,7 @@ RUN wget \
 COPY environment.yml .
 
 # Installs dependencies found in the enviroment.yml file
-RUN conda env create --file environment.yml --prefix /opt/conda-env
+RUN conda env create python=3.9 --file environment.yml --prefix /opt/conda-env
 
 # We now replace the image’s existing Python with Python from the conda environment:
 RUN mv /var/lang/bin/python3.9 /var/lang/bin/python3.9-clean && ln -sf /opt/conda-env/bin/python /var/lang/bin/python3.9

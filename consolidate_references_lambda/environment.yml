@@ -2,9 +2,10 @@ name: grib_kerchunk
 channels:
   - conda-forge
   - defaults
-dependencies:
+dependencies: 
+ - python=3.9
  - fsspec
- - s3fs
+ - s3fs=2022.11.0
  - boto3 
  - pip 
  - zarr 

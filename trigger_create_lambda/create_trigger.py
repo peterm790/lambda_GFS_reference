@@ -10,7 +10,7 @@ def handler(event, context):
     files = fs.glob(f's3://noaa-gfs-bdp-pds/gfs.{date}/{latest_run}/atmos/gfs.t{latest_run}z.pgrb2.0p25.f*')
     files = [f for f in files if f.split('.')[-1] != 'idx']
     files = sorted(['s3://'+f for f in files])
-    files_first_5 = files[:121:3] # 5 days hourly
+    files_first_5 = files[:121:1] # 03/01/2025 now do all files not just 3 hourly (5 days hourly)
     files_next_10 = files[121:]
     files = files_first_5+files_next_10
     fs_ = fsspec.filesystem('s3',skip_instance_cache = True)
